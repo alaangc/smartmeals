@@ -12,7 +12,7 @@ const handler = NextAuth({
     signIn: "/login",
   },
   callbacks: {
-    async session({ session, token }) {
+    async session({ session }) {
       return session;
     },
   },
