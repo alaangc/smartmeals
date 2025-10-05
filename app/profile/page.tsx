@@ -25,11 +25,32 @@ import { Navbar } from "@/components/navbar";
 import { User, Home, Utensils, AlertCircle, Target, ArrowRight, Edit, Activity, ChefHat } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+interface ProfileData {
+  name: string;
+  email: string;
+  householdSize: string;
+  dietaryPreference: string;
+  allergies?: string;
+  goal: string;
+  weight?: string;
+  height?: string;
+  age?: string;
+  gender?: string;
+  exercises?: string;
+  exerciseFrequency?: string;
+  activityLevel?: string;
+  foodDislikes?: string;
+  budget?: string;
+  cookingSkill?: string;
+  maxPrepTime?: string;
+  cuisinePreferences?: string[];
+}
+
 export default function ProfilePage() {
   const router = useRouter();
   const { data: session } = useSession();
   const [viewMode, setViewMode] = useState<"view" | "edit">("edit");
-  const [profileData, setProfileData] = useState<Record<string, string | string[]> | null>(null);
+  const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
