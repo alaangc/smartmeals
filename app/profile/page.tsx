@@ -22,14 +22,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Navbar } from "@/components/navbar";
-import { User, Home, Utensils, AlertCircle, Target, ArrowRight, Edit, Weight, Ruler, Calendar, Users, Dumbbell, Activity, DollarSign, ChefHat, Clock, UtensilsCrossed } from "lucide-react";
+import { User, Home, Utensils, AlertCircle, Target, ArrowRight, Edit, Activity, ChefHat } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function ProfilePage() {
   const router = useRouter();
   const { data: session } = useSession();
   const [viewMode, setViewMode] = useState<"view" | "edit">("edit");
-  const [profileData, setProfileData] = useState<any>(null);
+  const [profileData, setProfileData] = useState<Record<string, string | string[]> | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -84,7 +84,7 @@ export default function ProfilePage() {
   };
 
   const getGoalLabel = (goal: string) => {
-    const goals: any = {
+    const goals: Record<string, string> = {
       "lose-weight": "Perder peso",
       "gain-muscle": "Ganar músculo",
       "recomposition": "Recomposición corporal",
@@ -94,7 +94,7 @@ export default function ProfilePage() {
   };
 
   const getDietLabel = (diet: string) => {
-    const diets: any = {
+    const diets: Record<string, string> = {
       "omnivore": "Omnívoro",
       "vegetarian": "Vegetariano",
       "vegan": "Vegano",

@@ -21,7 +21,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Navbar } from "@/components/navbar";
-import { ChefHat, DollarSign, Clock, AlertCircle, UtensilsCrossed, ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
+import { ChefHat, DollarSign, Clock, AlertCircle, UtensilsCrossed, ArrowLeft, Sparkles } from "lucide-react";
 
 export default function ProfileStep3Page() {
   const router = useRouter();
